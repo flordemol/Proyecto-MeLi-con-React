@@ -4,13 +4,15 @@ import Header from "./../Components/Header/Header";
 import Products from "./../Pages/Products";
 
 
-const Routes = () => {
+const Routes = ({ search, handlerSearch }) => {
     return ( 
         <Router>
-            <Header />
+            <Header handlerSearch={handlerSearch} />
             <Switch>
                 <Route path="/" exact component={Home}/>
-                <Route path="/products" component={Products}/>
+                <Route path="/products">
+                    <Products search={search}/>
+                </Route>
             </Switch>
         </Router>
      );
